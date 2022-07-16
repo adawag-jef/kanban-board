@@ -23,8 +23,8 @@ const tokenDecode = (req) => {
 
 exports.verifyToken = async (req, res, next) => {
   const decodedToken = tokenDecode(req);
-  if (tokenDecoded) {
-    const user = await User.findById(tokenDecode.id);
+  if (decodedToken) {
+    const user = await User.findById(decodedToken.id);
     if (!user) {
       res.status(401).json("Unauthorized");
     }
